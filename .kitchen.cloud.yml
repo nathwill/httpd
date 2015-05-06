@@ -242,6 +242,21 @@ suites:
         version: '2.4'
 
   #
+  # service24-single-docker
+  #
+  - name: service24-single-docker
+    run_list:
+    - recipe[httpd_service_test::single-docker]
+    includes: [
+      'centos-7.0',
+      'fedora-21',
+      'ubuntu-15.04',
+    ]
+    attributes:
+      httpd:
+        version: '2.4'
+
+  #
   # service24-multi
   #
   - name: service24-multi
@@ -273,6 +288,33 @@ suites:
         minspareservers: '20'
         minspareservers: '40'
 
+  #
+  # service24-multi-docker
+  #
+  - name: service24-multi-docker
+    run_list:
+    - recipe[httpd_service_test::multi-docker]
+    includes: [
+      'centos-7.0',
+      'fedora-21',
+      'ubuntu-15.04'
+    ]
+    attributes:
+      httpd:
+        version: '2.4'
+        service_name: 'multi'
+        listen_ports: [ '81', '444' ]
+        run_user: 'bob'
+        run_group: 'bob'
+        contact: 'alice@computers.biz'
+        timeout: '1234'
+        keepalive: false
+        keepaliverequests: '5678'
+        keepalivetimeout: '8765'
+        mpm: 'prefork'
+        startservers: '20'
+        minspareservers: '20'
+        minspareservers: '40'
   #
   # modules
   #

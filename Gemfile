@@ -11,7 +11,7 @@ group :unit do
 end
 
 group :kitchen_common do
-  gem 'test-kitchen', '~> 1.2'
+  gem 'test-kitchen',  path: '/Users/someara/src/test-kitchen'
 end
 
 group :kitchen_vagrant do
@@ -36,3 +36,6 @@ group :development do
   gem 'guard-rubocop'
   gem 'rake'
 end
+
+gem 'kitchen-dokken', path: '/Users/someara/src/kitchen-dokken'
+gem 'docker-api', require: 'docker', path: '/Users/someara/src/docker-api'
